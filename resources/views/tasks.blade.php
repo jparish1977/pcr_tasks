@@ -58,9 +58,13 @@
 
                 <div class="card-body">
                     <div class='panel-body'>
-                        @foreach($tasks as $currentTask)
-                        @include('task', ['task' => $currentTask])
-                        @endforeach
+                        @if($tasks->count() > 0)
+                            @foreach($tasks as $currentTask)
+                            @include('task', ['task' => $currentTask])
+                            @endforeach
+                        @else
+                            There are no tasks to display
+                        @endif
                     </div>
                 </div>
             </div>
